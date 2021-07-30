@@ -1,0 +1,124 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="covid.css">
+    <title>Covid Risk Index</title>
+</head>
+<body>
+    <header>
+        <div class="name">
+           <h1>CORONA<br><span class="col_change">R</span>ISK <span class="col_change">I</span>NDEX</h1>
+            <div class="about">
+            <h6>ABOUT THE SITE ABOUT THE SITE ABOUT THE SITE ABOUT THE SITE ABOUT THE SITE ABOUT THE SITE ABOUT THE SITE ABOUT THE SITE ABOUT THE SITE ABOUT THE SITE ABOUT THE SITE ABOUT THE SITE </h6>
+            </div>
+        </div>
+        <img id="head_img" src="heading.jpg" alt="#">
+    </header>
+
+
+    <main>
+        
+        <div class="ind_val">
+            
+            <h3><span class="col_change">R</span>ISK <span class="col_change">I</span>NDEX<br>OF<br>YOUR LOCATION</h3>
+            
+            <div id="val">
+                
+               <span id="risk_index">5</span>/10<br><span id="risk_comment">YOU ARE SAFE</span>
+               <button id="start">START</button>
+               
+              
+               
+            </div>
+        </div>
+        <button onclick="location.href='./index.html'" type ="button" id="map_button">MAP<br>VIEW</button>
+        <img class="ind_img" src="index.png" alt="">
+    </main>
+    
+    <section id="T">
+        <div class="tips_head">
+            <h1>CORONA VIRUS PREVENTION TIPS</h1>
+        </div>
+        <div class="tips_img">
+            <img class="card" src="p1.jpg" alt="">
+            <img class="card" src="p2.jpg" alt="">
+            <img class="card" src="p3.jpg" alt="">
+            <img class="card" src="p4.jpg" alt="">
+            <img class="card" src="p5.png" alt="">
+            <img class="card" src="p6.jpg" alt="">
+        </div>
+    </section>
+
+    <section id="D">
+        <img class="doc" src="doctors.png" alt="">
+        <div class="thank">
+            <h2>THANK YOU<br/><span style="font-size:2vw;">
+            DOCTORS & NURSES</span></h2>
+        </div>
+    </footer>
+
+
+    <script>
+        const start =document.querySelector('#start');
+        const stop =document.querySelector('#stop');
+
+        start.addEventListener("click",() =>{
+            navigator.geolocation.watchPosition(data =>{
+                const lat = data.coords.latitude;
+                const long = data.coords.longitude;
+                console.log(lat,long);
+                fetch("/data.json")
+        .then(response => response.json())
+        .then(rsp => {
+            console.log(rsp.data)
+            rsp.data.forEach(element => {
+                latitude = element.latitude;
+                longitude = element.longitude;
+                
+                if(lat-latitude<5 && long-longitude<5)
+                    {console.log(latitude,longitude);
+                    cases=element.infected;}
+                
+               
+            })
+            var x=cases;
+            document.getElementById("risk_index").innerHTML=cases;
+            var y=document.getElementById("risk_comment");
+        if(x<3)
+        {
+            y.innerHTML="YOU ARE SAFE";
+            y.style.color="#007200";
+        }
+        else if(x<6)
+        {
+            y.innerHTML="LESS CONTAMINATE AREA";
+            y.style.color="#FF676D";
+        }
+        else if(x<8)
+        {
+            y.innerHTML="HIGHLY CONTAMINATE AREA";
+            y.style.color="#FF4449";
+        }
+        else
+        {
+            y.innerHTML="LEAVE AS SOON AS POSSIBLE";
+            y.style.color="#FF0000";
+        }
+        })
+      
+        
+               
+                
+            },error => console.log(error),
+            {
+                enableHighAccuracy:true
+            }
+            );
+        });
+        
+        
+        
+    </script>
+</body>
+</html>

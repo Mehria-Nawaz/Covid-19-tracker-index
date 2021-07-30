@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css?family=Days One');
+
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+/*header*/
+header{
+    width:100%;
+    height:100vh;
+    background-color:white;
+    position: relative;
+}
+.name{
+    width:450px;
+    font-family: 'Days One','Times New Roman', Times, serif;
+    color:rgb(1, 15, 60);
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    text-align: center;
+    font-size:x-large;
+    font-weight:200;
+    margin-left:5%;
+    margin-top: 5%;
+    z-index:1;
+}
+
+.about{
+    position:relative;
+    width:80%;
+    left:10%;
+    top:-25px;
+    font-family:Geneva, Verdana, sans-serif;
+    font-size: medium;
+    font-weight:normal;
+    text-overflow: ellipsis;
+    color:black;
+}
+
+.col_change{
+    color:rgb(255, 0, 0);
+}
+
+#head_img{
+    width:60%;
+    max-height:100vh;
+    position: absolute;
+    right:0;
+    bottom: 0;
+    z-index: 0;
+}
+
+/*main divition for showing risk index*/
+main{
+    width:100%;
+    height:100vh;
+    background-color:white;
+    position: relative;
+    overflow: hidden;
+}
+
+.ind_val{
+    font-family:  'Days One',Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    position: relative;
+    width: fit-content;
+    float: right;
+    top:-5%;
+    right:-3%;
+    text-align: center;
+    font-size:6vh;
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.212);
+    font-weight: bolder;
+    margin-right:10%;
+    z-index: 1;
+}
+
+#val{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position:relative;
+    top:-6vh;
+    font-size:45px;
+}
+
+#risk_index{
+    font-size:100px;
+}
+
+#risk_comment{
+    font-family:Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size:25px;
+    text-shadow: none;
+}
+
+#map_button{
+    position: absolute;
+    right:2%;
+    bottom: 1%;
+    z-index: 1;
+
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding:10px 30px;
+    background-color:rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.733);
+    cursor: pointer;
+}
+
+
+
+
+#map_button:hover{
+    box-shadow:3px 3px 5px 0  rgba(0, 0, 0, 0.3) inset,-3px -3px 5px 0  rgba(0, 0, 0, 0.3) inset;
+    font-size:25px;
+}
+#start{
+    position: absolute ;
+    left:80%;
+    right:0%;
+    bottom: 70%;
+    z-index: 1;
+
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding:10px 30px;
+    background-color:rgba(8, 171, 235, 0.521);
+    color: rgba(255, 255, 255, 0.733);
+    cursor: pointer;
+}
+
+
+
+
+#start:hover{
+    box-shadow:3px 3px 5px 0  rgba(3, 19, 20, 0.3) inset,-3px -3px 5px 0  rgba(16, 137, 236, 0.185) inset;
+    font: 25px;
+}
+
+
+
+
+
+.ind_img{
+    width:100%;
+    max-height:130vh;
+    position: absolute;
+    left:0;
+    bottom: 0;
+    z-index: 0;
+}
+
+/* Prevention Section*/
+#T{
+    position: relative;
+}
+
+.tips_head{
+    width:100%;
+    padding:1% 0;
+    font-family:sans-serif;
+    background-color: yellowgreen;
+    text-align: center;
+    font-size: 100%;
+    font-weight: bolder;
+}
+
+.tips_img{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card{
+    width:300px;
+    height: 300px;
+    border-radius:30px;
+    box-shadow: 0px 10px 20px -5px grey;
+    margin: 5%;
+}
+
+/* doctor*/
+#D{
+    position: relative;
+    text-align: center;
+    padding-bottom:50px;
+}
+.doc{
+    width:100%;
+}
+.thank{
+    width:100%;
+    position: absolute;
+    text-align: center;
+    bottom:0;
+    color: rgb(2, 17, 63);
+    font-family:Times;
+    font-size:3vw;
+    font-weight: bolder;
+}
+
+/*media query*/
+@media screen and (max-width:500px){
+     #head_img{
+        right:20%;
+    }
+}

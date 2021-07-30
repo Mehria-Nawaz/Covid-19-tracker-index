@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>track</title>
+</head>
+<body>
+    <h1>Hello lets tell u ur location</h1>
+    <button id="start">Start</button>
+    <button id ="stop">Stop</button>
+
+    <script>
+        const start =document.querySelector('#start');
+        const stop =document.querySelector('#stop');
+
+        start.addEventListener("click",() =>{
+            navigator.geolocation.watchPosition(data =>{
+                const lat = data.coords.latitude;
+                const long = data.coords.longitude;
+                fetch("/data.json")
+        .then(response => response.json())
+        .then(rsp => {
+            console.log(rsp.data)
+            rsp.data.forEach(element => {
+                latitude = element.latitude;
+                longitude = element.longitude;
+                
+                if(lat-latitude<5 && long-longitude<5)
+                    {console.log(latitude,longitude);
+                    cases=element.infected;}
+                
+               
+            })
+            document.getElementById('cases').textContent = cases;;
+        })
+      
+        
+                document.getElementById('latitude').textContent = lat;
+                document.getElementById('longitude').textContent = long;
+                console.log(data);
+                
+            },error => console.log(error),
+            {
+                enableHighAccuracy:true
+            }
+            );
+        });
+        
+            
+
+            
+    </script>
+    
+    <p>latitude: <span id="latitude"></span>&deg;<br />
+    longitude: <span id="longitude"></span>&deg;<br \>
+    Cases: <span id="cases"></span>
+  
+</p>
+
+</body>
+</html>

@@ -32,7 +32,6 @@
                
             </div>
         </div>
-        <button onclick="location.href='./index.html'" type ="button" id="map_button">MAP<br>VIEW</button>
         <img class="ind_img" src="index.png" alt="">
     </main>
     
@@ -83,7 +82,9 @@
                
             })
             var x=cases;
-            document.getElementById("risk_index").innerHTML=cases;
+                    while(x>9)
+                    x=Number(x)/10;
+            document.getElementById("risk_index").innerHTML=x;
             var y=document.getElementById("risk_comment");
         if(x<3)
         {
